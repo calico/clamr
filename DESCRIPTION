@@ -1,0 +1,53 @@
+Package: clamr
+Type: Package
+Title: Calico Lipidomics and Metabolomics R Core Functions
+Version: 1.0.0
+Authors@R: c(
+    person("Sean", "Hackett", email = "sean@calicolabs.com", role = c("aut", "cre")),
+    person("Phillip", "Seitzer", email = "phillipseitzer@calicolabs.com", role = "aut"))
+Author: Sean Hackett
+Maintainer: Sean Hackett <sean@calicolabs.com>
+Description: CLaM provides general tools for feature grouping and identification in mass spectrometry data which contains MS2 information. Similar methods can be applied to soluble metabolites, lipids or peptides.
+Depends: R (>= 3.2.3)
+License: file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: checkmate,
+    data.table,
+    DBI,
+    dbplyr,
+    debugr,
+    dplyr,
+    furrr,
+    gam,
+    glue,
+    ggplot2,
+    igraph,
+    mgcv,
+    parallel,
+    plyr,
+    purrr,
+    reshape2,
+    rlang,
+    scales,
+    stringr,
+    tibble,
+    tidyr (>= 1.0.0)
+Suggests: fuzzyjoin (>= 0.1.3),
+    clamshell,
+    broom,
+    fastcluster,
+    ggdendro,
+    ggjoy,
+    gridExtra,
+    knitr,
+    mzkitcpp,
+    mzR,
+    IRanges,
+    lazyeval,
+    lpSolveAPI,
+    rmarkdown,
+    RSQLite,
+    testthat
+VignetteBuilder: knitr
+RoxygenNote: 7.1.1
