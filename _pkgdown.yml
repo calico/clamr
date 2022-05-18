@@ -1,0 +1,122 @@
+reference:
+- title: "Core Data Structures"
+  desc: "Represent datasets and properties  "
+- subtitle: "Working with .mzrollDB experiments"
+  desc: "Connect to an mzrollDB sqlite database produced by MAVEN or quahog."
+- contents:
+  - clamr
+  - mzroll_db_sqlite
+  - clamr_summary
+  - test_mzroll_db_con_schema
+  - validate_mzroll_db_schema
+  - mzroll_pass_bookmarks
+- subtitle: "CLaM R Config"
+  desc: "Specify parameters tied to a mass spec experiment such as mass tolerances."
+- contents:
+  - build_clamr_config
+  - clamr_config_assign
+  - format_mass_accuracy_input
+  - format_mass_accuracy_tolerances
+  - require_tolerances
+  - test_clamr_config
+- subtitle: "Alternative Data Representations"
+- contents:
+  - extract_peakset
+  - peakset_format_for_mzroll
+  - augment_peakgroups
+  - nest_peakgroup_features
+  - mz_set_example
+- title: "Raw data workflows"
+  desc: "Interact with mass spec files rather than an .mzrollDB dataset"
+- contents:
+  - tidy_mzR_from_msfile
+  - tidy_mzR_extract_mzs
+  - tidy_mzR_EICs
+  - tidy_mzR_plot_scans
+  - tidy_mzR_plot_major_features
+  - match_mzroll_db_to_file
+  - strip_ms_file_extension
+  - strip_ms_file_extension_from_extensions
+  - get_valid_ms_file_extensions
+  - ms2_scans_from_raw_files
+- title: "Dataset-Level Transformation and Identification"
+  desc: "Update an experiment"
+- subtitle: "Retention Time Alignment"
+  desc: "Align samples to correct for RT drift"
+- contents:
+  - ms2_driven_aligner
+  - estimate_rt_drift
+  - estimate_mz_ppm_drift
+  - ms2_driven_aligner_plotting
+  - find_candidate_anchors
+  - update_sample_rt
+- subtitle: "Coelution Detection"
+  desc: "Detect features which are related isotopologues or adducts"
+- contents:
+  - identify_coelutions
+  - find_common_coelutions
+  - simplify_coelution_subgraph
+  - apply_coelution_labels
+  - generate_coelution_peaks
+  - combine_sample_coelutions_w_peaks
+  - peakgrp_coelution_annotation
+  - standard_coelution_library
+- subtitle: "Detect Pathologies"
+  desc: "Identify complex noise"
+- contents:
+  - identify_split_peaks
+  - smear_detection
+- subtitle: "Dataset Filters"
+  desc: "Remove peakgroups or samples from a .mzrollDB experiment file"
+- contents:
+  - find_unique_peakgroups
+  - merge_peakgroups
+  - remove_redundant_peakgroups
+  - reduce_mzroll_samples
+- title: "Spectra"
+  desc: "Group, filter, and match spectra"
+- contents:
+  - extract_fragments
+- subtitle: "Grouping"
+- contents:
+  - find_consistent_ms2_fingerprints
+  - group_similar_MS2
+  - score_fragmentation_similarity
+  - extract_and_group_fragments
+  - aggregate_scans
+  - sum_spectra
+- subtitle: "Filtering"
+- contents:
+  - spectra_filter_fragments
+  - filter_low_complexity_spectra
+  - filter_low_information_fragments
+- title: "Utilities"
+- subtitle: "Clustering"
+  desc: "Separate features into resolvable subsets"
+- contents:
+  - find_mz_jumps
+  - find_scan_jumps
+  - find_density_minima
+- subtitle: "Joins"
+  desc: "Join features by mass and retention time"
+- contents:
+  - join_peaks_to_scans
+  - join_groupIds_to_mz_rts
+  - join_matching_standards
+  - match_peaksets
+  - mz_peak_join_fxn
+  - mz_scan_join_fxn
+- subtitle: "Chemistry"
+  desc: "Work with chemical formulas"
+- contents:
+  - parse_standard_formulas
+  - create_isotopic_chemical_formula
+  - estimate_chemical_formula
+  - split_formula
+  - formula_monoisotopic_mass
+  - adduct_mass
+  - isotope_summaries
+  - elemental_frequency_summary
+template:
+  params:
+    bootswatch: flatly
