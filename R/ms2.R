@@ -117,6 +117,8 @@ aggregate_scans <- function(group_scans, MS2tol, n_top_spectra_summed = 3L, qual
 #' @param inconsistency_proportion fraction of signal which can exist between peaks to still allow them to be resolved
 #'
 #' @return a tibble of an aggregated MS2 spectra
+#'
+#' @export
 extract_and_group_fragments <- function(mz_set, MS2tol, inconsistency_proportion = 0.005) {
   # extract and order fragments
   lapply(mz_set$peak_num, function(a_peak) {
