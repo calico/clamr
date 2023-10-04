@@ -150,11 +150,11 @@ validate_mzroll_db_schema <- function(mzroll_data_list, tables = "all") {
 clamr_summary <- function(mzroll_db_con, clamr_config) {
   db_tables <- DBI::dbListTables(mzroll_db_con)
 
-  ms_file_summary <- tibble::frame_data(~Metric, ~Value)
+  ms_file_summary <- tibble::tribble(~Metric, ~Value)
 
   if ("peakgroups" %in% db_tables) {
     ms_file_summary <- ms_file_summary %>%
-      dplyr::bind_rows(tibble::frame_data(
+      dplyr::bind_rows(tibble::tribble(
         ~Metric, ~Value,
         "Peak Groups", "",
         "number of peak groups", dplyr::tbl(mzroll_db_con, dplyr::sql("SELECT Count(*) FROM peakgroups")) %>% dplyr::collect() %>% unlist() %>% unname() %>%
@@ -175,7 +175,7 @@ clamr_summary <- function(mzroll_db_con, clamr_config) {
 
   if ("peaks" %in% db_tables) {
     ms_file_summary <- ms_file_summary %>%
-      dplyr::bind_rows(tibble::frame_data(
+      dplyr::bind_rows(tibble::tribble(
         ~Metric, ~Value,
         "Peaks", "",
         "MZ range", dplyr::tbl(mzroll_db_con, dplyr::sql("SELECT MIN(mzmin), MAX(mzmax) FROM peaks")) %>% dplyr::collect() %>% unlist() %>% unname() %>% paste(., collapse = "-"),
@@ -191,7 +191,7 @@ clamr_summary <- function(mzroll_db_con, clamr_config) {
       unname()
 
     ms_file_summary <- ms_file_summary %>%
-      dplyr::bind_rows(tibble::frame_data(
+      dplyr::bind_rows(tibble::tribble(
         ~Metric, ~Value,
         "Samples", "",
         "number of samples", length(all_samples),
@@ -209,12 +209,12 @@ clamr_summary <- function(mzroll_db_con, clamr_config) {
     MSN_counts$Value <- format(MSN_counts$Value, big.mark = ",", scientific = FALSE)
 
     ms_file_summary <- ms_file_summary %>%
-      dplyr::bind_rows(tibble::frame_data(
+      dplyr::bind_rows(tibble::tribble(
         ~Metric, ~Value,
         "Scans", ""
       )) %>%
       dplyr::bind_rows(MSN_counts) %>%
-      dplyr::bind_rows(tibble::frame_data(
+      dplyr::bind_rows(tibble::tribble(
         ~Metric, ~Value,
         "", ""
       ))
@@ -249,7 +249,7 @@ clamr_summary <- function(mzroll_db_con, clamr_config) {
 }
 
 mzroll_schema_required_classes <- function() {
-  tibble::frame_data(
+  tibble::tribble(
     ~table, ~variable, ~required_class, ~variable_is_required,
     "peakgroups", "groupId", "integer", T,
     "peakgroups", "parentGroupId", "integer", T,

@@ -85,7 +85,7 @@ score_fragmentation_similarity <- function(an_expFrag, a_stdFrag, MS2tol, frag_s
       MS2tol = MS2tol
     ))
 
-    tibble::frame_data(
+    tibble::tribble(
       ~frag_similarity_method, ~method_score,
       a_method_flag, method_score
     )
